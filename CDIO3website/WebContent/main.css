@@ -21,7 +21,7 @@
 	width : 100%;
 	right : 0px;
 	display : block;
-	position: absolute;
+	position: relative;
 	background-color: #57badb;
 	border-width: 2px;
 	border-top : solid;
@@ -83,12 +83,13 @@
 
 #UserTableBox
 {
-	width: 100%;
+	width: 60%;
+	margin: auto;
 	border-top: solid;
 	border-width : 5px;
 	border-color : #1a75ff;
 	background-color: #bdccdb;
-	position: absolute;
+	position: relative;
 	top: 290px;
 }
 #UserTable
