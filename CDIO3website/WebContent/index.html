@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Group 25 CDIO03</title>
+<script src="jquery-3.2.1.js"></script>
+<script src="admin.js"></script>
+<script src="jquery.serialize-object.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div id="SiteHeader">
+		<h1>ADMIN PAGE</h1>
+	</div>
+	<div id="SiteBody">
+		<div id="CU_UserBox">
+			<form id="CU_UserInputFields">
+				<fieldset>
+					Username<br> <input type="text" name="username"
+						class="inputField" index="usernameField"><br>
+					Password<br> <input type="text" name="password"
+						class="inputField"><br> CPR<br> <input
+						type="text" id="CPR" name="cpr" class="inputField" maxlength="6">-<input
+						type="text" id="CPR2" class="inputField" maxlength="4"><br>
+					Roles:<br> Pharmacist<input type="checkbox" value="pharmacist"
+						name="role"> Administrator<input type="checkbox"
+						value="admin" name="role"> <br> Production Manager<input
+						type="checkbox" value="productionManager" name="role"> Lab
+					assistant<input type="checkbox" value="labAssistant" name="role"><br>
+				</fieldset>
+				<button id="CreateUserOK">Submit</button>
+			</form>
+		</div>
+		<div id="UserTableBox">
+			<div id="ButtonPane">
+				<button id="CreateUser" class="adminOption">Create new user</button>
+				<button id="ShowUsers" class="adminOption">Refresh user list</button>
+			</div>
+			<table id="UserTable">
+				<tr id="firstRow">
+					<th>ID</th>
+					<th>User name</th>
+					<th>Password</th>
+					<th>CPR</th>
+					<th>Ad</th>
+					<th>Ph</th>
+					<th>Pr</th>
+					<th>La</th>
+					<th>Delete</th>
+					<th>Update</th>
+				</tr>
+			</table>
+			<div id="UserTableFooter"></div>
+		</div>
+	</div>
+</body>
+</html>
