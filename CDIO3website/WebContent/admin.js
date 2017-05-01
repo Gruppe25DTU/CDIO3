@@ -12,6 +12,7 @@ $(document).ready(function(){
 		if($("#CU_UserInputFields").is(":hidden"))
 		{
 			$("#CU_UserInputFields").show();
+			$("#usernameField").focus();
 
 		}
 		else
@@ -23,13 +24,16 @@ $(document).ready(function(){
 	$("#CPR").keyup(function(){
 		this.value = this.value.replace(/[^0-9\.]/g,'');
 		if(this.value.length == this.maxLength)
+
 		{	
+
 			$("#CPR2").focus();
 		}
 		
 	});
 
 	$("#CPR2").keyup(function(){
+		this.value = this.value.replace(/[^0-9\.]/g,'');
 		if(this.value.length == 0)
 		{
 			$("#CPR").focus();
@@ -148,23 +152,6 @@ function clickUpdateButton(rowNumber)
 
 function updateTable()
 {	
-	var emptyRows = 20
-	$("#firstRow").nextAll().html("");
-	for(var k = 0; k<emptyRows;k++)
-	{
-		$("#UserTable").append("<tr class=\"emptyRow\">" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-				"<td></td>" +
-		"</tr>");
-	}
 	sendUserListRequest();
 	if(users != null || users !=undefined)
 	{
