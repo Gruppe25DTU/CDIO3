@@ -21,7 +21,7 @@
 	width : 100%;
 	right : 0px;
 	display : block;
-	position: absolute;
+	position: relative;
 	background-color: #57badb;
 	border-width: 2px;
 	border-top : solid;
@@ -31,14 +31,14 @@
 
 .adminOption
 {
-	float: right;
+	float: left;
 	width : 20%;
 	font-size : 20px;
 	border-width: 0px;
 	text-align : center;
 	background-color : #57badb;
 	cursor: pointer;
-	margin : 0px;
+	margin-left : 20%;
 	
 }
 
@@ -61,14 +61,13 @@
 
 #CU_UserBox
 {
-	width : 100%;
+	width : 60%;
+	margin : 0 auto;
 	background-color: #BBBBBB;
-	position: absolute;
-	border-bottom : solid;
-	border-width: 15px;
-	border-color: #47a9db;
-	height : 280px;
+	position: relative;
+	height : 310px;
 	z-index : 8;
+	top : 30px;
 	
 }
 
@@ -78,18 +77,19 @@
 	position : absolute;
 	top : 20px;
 	display: none;
+	margin-left :auto;
+	margin-right : auto;
+	text-align: left;
 	
 }
 
 #UserTableBox
 {
-	width: 100%;
-	border-top: solid;
-	border-width : 5px;
-	border-color : #1a75ff;
+	width : 60%;
+	margin : 0 auto;
 	background-color: #bdccdb;
-	position: absolute;
-	top: 290px;
+	position : relative;
+	top : 50px;
 }
 #UserTable
 {
@@ -149,6 +149,24 @@
 	border-color: #595959;
 }
 
+.CU_subfields
+{
+	float: left;
+	margin-left : 50px;
+}
+
+#CU_buttonbox
+{
+	height : 230px;
+	width : 100px;
+	float : right; 
+}
+
+#CreateUserOK
+{
+	position : absolute;
+	bottom : 0;
+}
 #CPR
 {
 	width : 45px;
@@ -157,6 +175,11 @@
 #CPR2
 {
 	width : 30px;
+}
+
+#IDField
+{
+	width : 20px;
 }
 
 Body
