@@ -20,6 +20,7 @@ $(document).ready(function(){
 			$("#CU_UserInputFields").hide();
 		}
 	});
+	
 	$("#CPR").keydown(function() {
 		var inp = String.fromCharCode(event.keyCode);
 		if (/[a-zA-Z-_ ]/.test(inp))
