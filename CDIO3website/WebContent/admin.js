@@ -20,22 +20,49 @@ $(document).ready(function(){
 			$("#CU_UserInputFields").hide();
 		}
 	});
+	$("#CPR").keydown(function() {
+		var inp = String.fromCharCode(event.keyCode);
+		if (/[a-zA-Z-_ ]/.test(inp))
+			if((event.ctrlKey)) {
+			}
+			else 
+				event.preventDefault();
+		if(this.value.length == this.maxLength && event.data.is(0-9)) {
+			$("#CPR2").text(event.data);
+			$("#CPR2").focus();
+		}
 
+	});
 	$("#CPR").keyup(function(){
-		this.value = this.value.replace(/[^0-9\.]/g,'');
 		if(this.value.length == this.maxLength)
 		{
-			
 			$("#CPR2").focus();
 		}
 	});
 
+	$("#CPR2").keydown(function() {
+		var inp = String.fromCharCode(event.keyCode);
+		if (/[a-zA-Z-_ ]/.test(inp))
+			if((event.ctrlKey)) {
+			}
+			else 
+				event.preventDefault();
+		if(this.value.length == 0 && event.keyCode == 8) {
+			$("#CPR").focus();
+
+		}
+
+
+
+	});
+
+
 	$("#CPR2").keyup(function(){
-		this.value = this.value.replace(/[^0-9\.]/g,'');
-		if(this.value.length == 0)
+		if(this.value.length == 0 && ($("#CPR").input.length !=6))
 		{
 			$("#CPR").focus();
 		}
+
 	});
 
 	//CU = Create , Update
@@ -170,33 +197,33 @@ function updateTable()
 var users;
 var userPage = 0;
 var userCreationFormHtml = "<fieldset>"+
-							"Username<br> <input type=\"text\" name=\"username\""+
-							"class=\"inputField\" index=\"usernameField\"><br>"+
-							"Password<br> <input type=\"text\" name=\"password\""+
-							"class=\"inputField\"><br> CPR<br> <input"+
-							"type=\"text\" id=\"CPR\" name=\"cpr\" class=\"inputField\" maxlength=\"6\">-<input"+
-							"type=\"text\" id=\"CPR2\" class=\"inputField\" maxlength=\"4\"><br>"+
-							"Roles:<br> Pharmacist<input type=\"checkbox\" value=\"pharmacist\""+
-							"name=\"role\"> Administrator<input type=\"checkbox\""+
-							"value=\"admin\" name=\"role\"> <br> Production Manager<input"+
-							"type=\"checkbox\" value=\"productionManager\" name=\"role\"> Lab"+
-							"assistant<input type=\"checkbox\" value=\"labAssistant\" name=\"role\"><br>"+
-							"</fieldset>"+
-							"<button id=\"CreateUserOK\">Submit</button>";
+"Username<br> <input type=\"text\" name=\"username\""+
+"class=\"inputField\" index=\"usernameField\"><br>"+
+"Password<br> <input type=\"text\" name=\"password\""+
+"class=\"inputField\"><br> CPR<br> <input"+
+"type=\"text\" id=\"CPR\" name=\"cpr\" class=\"inputField\" maxlength=\"6\">-<input"+
+"type=\"text\" id=\"CPR2\" class=\"inputField\" maxlength=\"4\"><br>"+
+"Roles:<br> Pharmacist<input type=\"checkbox\" value=\"pharmacist\""+
+"name=\"role\"> Administrator<input type=\"checkbox\""+
+"value=\"admin\" name=\"role\"> <br> Production Manager<input"+
+"type=\"checkbox\" value=\"productionManager\" name=\"role\"> Lab"+
+"assistant<input type=\"checkbox\" value=\"labAssistant\" name=\"role\"><br>"+
+"</fieldset>"+
+"<button id=\"CreateUserOK\">Submit</button>";
 
 var userUpdateFormHtml = "<fieldset>"+
-							"Username<br> <input type=\"text\" name=\"username\""+
-							"class=\"inputField\" index=\"usernameField\"><br>"+
-							"Password<br> <input type=\"text\" name=\"password\""+
-							"class=\"inputField\"><br> CPR<br> <input"+
-							"type=\"text\" id=\"CPR\" name=\"cpr\" class=\"inputField\" maxlength=\"6\">-<input"+
-							"type=\"text\" id=\"CPR2\" class=\"inputField\" maxlength=\"4\"><br>"+
-							"Roles:<br> Pharmacist<input type=\"checkbox\" value=\"pharmacist\""+
-							"name=\"role\"> Administrator<input type=\"checkbox\""+
-							"value=\"admin\" name=\"role\"> <br> Production Manager<input"+
-							"type=\"checkbox\" value=\"productionManager\" name=\"role\"> Lab"+
-							"assistant<input type=\"checkbox\" value=\"labAssistant\" name=\"role\"><br>"+
-							"</fieldset>"+
-							"<button id=\"CreateUserOK\">Submit</button>";
+"Username<br> <input type=\"text\" name=\"username\""+
+"class=\"inputField\" index=\"usernameField\"><br>"+
+"Password<br> <input type=\"text\" name=\"password\""+
+"class=\"inputField\"><br> CPR<br> <input"+
+"type=\"text\" id=\"CPR\" name=\"cpr\" class=\"inputField\" maxlength=\"6\">-<input"+
+"type=\"text\" id=\"CPR2\" class=\"inputField\" maxlength=\"4\"><br>"+
+"Roles:<br> Pharmacist<input type=\"checkbox\" value=\"pharmacist\""+
+"name=\"role\"> Administrator<input type=\"checkbox\""+
+"value=\"admin\" name=\"role\"> <br> Production Manager<input"+
+"type=\"checkbox\" value=\"productionManager\" name=\"role\"> Lab"+
+"assistant<input type=\"checkbox\" value=\"labAssistant\" name=\"role\"><br>"+
+"</fieldset>"+
+"<button id=\"CreateUserOK\">Submit</button>";
 
 var userDeleteFormHtml = "";
