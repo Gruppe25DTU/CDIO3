@@ -20,21 +20,31 @@ $(document).ready(function(){
 			$("#CU_UserInputFields").hide();
 		}
 	});
-	
+
+	var map = {17: false};
+
+
+
 	$("#CPR").keydown(function() {
-		var inp = String.fromCharCode(event.keyCode);
-		if (/[a-zA-Z-_ ]/.test(inp))
-			if((event.ctrlKey)) {
-			}
-			else 
+		//Check for letters
+		if (event.keyCode in map) {
+			map[event.keyCode] = true;
+		}
+		if(event.keyCode >= 65 && event.keyCode <= 90 && event.keyCode != 107) {
+			if(!map[17]) {
 				event.preventDefault();
-		if(this.value.length == this.maxLength && event.data.is(0-9)) {
+			}	
+		}
+		if(this.value.length == this.maxLength && event.keyCode >= 48 && event.keyCode <=57) {
 			$("#CPR2").text(event.data);
 			$("#CPR2").focus();
 		}
 
 	});
 	$("#CPR").keyup(function(){
+		if (event.keyCode in map) {
+	        map[event.keyCode] = false;
+	    }
 		if(this.value.length == this.maxLength)
 		{
 			$("#CPR2").focus();
@@ -42,12 +52,14 @@ $(document).ready(function(){
 	});
 
 	$("#CPR2").keydown(function() {
-		var inp = String.fromCharCode(event.keyCode);
-		if (/[a-zA-Z-_ ]/.test(inp))
-			if((event.ctrlKey)) {
-			}
-			else 
+		if (event.keyCode in map) {
+			map[event.keyCode] = true;
+		}
+		if(event.keyCode >= 65 && event.keyCode <= 90 && event.keyCode != 107) {
+			if(!map[17]) {
 				event.preventDefault();
+			}	
+		}
 		if(this.value.length == 0 && event.keyCode == 8) {
 			$("#CPR").focus();
 
@@ -59,6 +71,9 @@ $(document).ready(function(){
 
 
 	$("#CPR2").keyup(function(){
+		if (event.keyCode in map) {
+	        map[event.keyCode] = false;
+	    }
 		if(this.value.length == 0 && ($("#CPR").input.length !=6))
 		{
 			$("#CPR").focus();
