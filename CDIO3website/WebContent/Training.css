@@ -23,8 +23,8 @@ header {background: black;color:white;}
 .userlistbox {background: #aaa;color:white;}
 
 @media all and (min-width: 500px) {
-    .nav {text-align:left;flex:0.5 auto; order:1;}
-    .users {flex:10 0px; order:2;}
+    .nav {text-align:left;flex:0 auto; order:1;}
+    .users {flex:2 0px; order:2;}
     .userlistbox {order:3;}
 }
 
