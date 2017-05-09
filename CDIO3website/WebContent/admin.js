@@ -42,22 +42,39 @@ $(document).ready(function(){
 		return false;
 	}
 	//Map: 17 pressed == true. If true allow commands. (ctrl A, ctrl C) 
-	var map = {17: false, 18: false};
-	var CPRnotAllowed = ["107","111","106","192","109","221","222","190", "188", "191", "186", "187",
-		"219", "226", "106", "110", "16"];
+	var map = {17: false, 18: false, 16: false};
 
-	$("#CPR").keydown(function() {
-		alert(event.keyCode);
-		map[event.keyCode] = event.keyCode in map;
+	//Numbers only function
+	function isNumber(keyCode) {
+		var notAllowed = ["107","111","106","192","109","221","222","190", "188", "191", "186", "187","219", "226", "106", "110"];
 
-		if(inArray(CPRnotAllowed,event.keyCode)) {
-			event.preventDefault();
+		if(inArray(notAllowed,keyCode)) {
+			return false;
 		}
 		//Check for letters
-		if(event.keyCode >= 65 && event.keyCode <= 90) {
-			if(!map[17]) {
-				event.preventDefault();
+		if(keyCode >= 65 && keyCode <= 90) {
+			if(!map[17] || map[16]) {
+				return false;
 			}	
+		}
+
+		//Check for numbers
+		if((event.keyCode >= 48 && event.keyCode <= 57)) {
+			if(map[16] || map[18])
+				return false;
+
+		}
+		return true;
+	}
+
+
+
+	$("#CPR").keydown(function() {
+		map[event.keyCode] = event.keyCode in map;
+		//alert(event.keyCode);
+
+		if(!isNumber(event.keyCode)) {
+			event.preventDefault();
 		}
 
 		if(this.value.length == this.maxLength && event.keyCode >= 48 && event.keyCode <=57) {
@@ -67,8 +84,14 @@ $(document).ready(function(){
 
 	});
 	$("#CPR").keyup(function(){
+		if(event.keyCode == 186 && event.keyCode == 219)
+			event.preventDefault();
 		if (event.keyCode in map) {
 			map[event.keyCode] = false;
+		}
+
+		if(!isNumber(event.keyCode)) {
+			event.preventDefault();
 		}
 		if(this.value.length == this.maxLength)
 			$("#CPR2").focus();
@@ -79,12 +102,14 @@ $(document).ready(function(){
 	$("#CPR2").keydown(function() {
 		if (event.keyCode in map) {
 			map[event.keyCode] = true;
+
 		}
-		if(event.keyCode >= 65 && event.keyCode <= 90 && event.keyCode != 107) {
-			if(!map[17]) {
-				event.preventDefault();
-			}	
+
+		if(!isNumber(event.keyCode)) {
+			event.preventDefault();
 		}
+
+
 		if(this.value.length == 0 && event.keyCode == 8) {
 			$("#CPR").focus();
 
@@ -96,8 +121,13 @@ $(document).ready(function(){
 
 
 	$("#CPR2").keyup(function(){
+		if(event.keyCode == 186 && event.keyCode == 219)
+			event.preventDefault();
 		if (event.keyCode in map) {
 			map[event.keyCode] = false;
+		}
+		if(!isNumber(event.keyCode)) {
+			event.preventDefault();
 		}
 		if(this.value.length == 0 && ($("#CPR").input.length !=6))
 		{
@@ -109,10 +139,8 @@ $(document).ready(function(){
 		if (event.keyCode in map) {
 			map[event.keyCode] = true;
 		}
-		if(event.keyCode >= 65 && event.keyCode <= 90 && event.keyCode != 107) {
-			if(!map[17]) {
-				event.preventDefault();
-			}	
+		if(!isNumber(event.keyCode)) {
+			event.preventDefault();
 		}
 	});
 
@@ -120,6 +148,9 @@ $(document).ready(function(){
 	$("#tlf").keyup(function(){
 		if (event.keyCode in map) {
 			map[event.keyCode] = false;
+		}
+		if(!isNumber(event.keyCode)) {
+			event.preventDefault();
 		}
 	});
 
@@ -159,6 +190,23 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#ZipCode").keydown(function() {
+		if (event.keyCode in map) {
+			map[event.keyCode] = true;
+		}
+		if(!isNumber(event.keyCode)) {
+			event.preventDefault();
+		}
+	});
+
+	$("#ZipCode").keyup(function() {
+		if (event.keyCode in map) {
+			map[event.keyCode] = false;
+		}
+		if(!isNumber(event.keyCode)) {
+			event.preventDefault();
+		}
+	});
 
 
 	//CU = Create , Update
