@@ -7,36 +7,7 @@ $(document).ready(function(){
 	$("#ShowUsers").click(function(){
 		updateTable();
 	});
-	
-	$("#about").click(function() {
-		$("#popup").modal('show');
-		
-	});
-	$("window").click(function() {
-		if(event.target == $("popup")) {
-			$("popup").display = "none";
-		}
-	});
 
-	var modal = document.getElementById('popup');
-
-	var btn = document.getElementById("about");
-
-	var span = document.getElementsByClassName("close")[0];
-
-	/*btn.onclick = function() {
-	    modal.style.display = "block";
-	}
-*/
-	span.onclick = function() {
-	    modal.style.display = "none";
-	}
-
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-	}
 	
 	
 	
