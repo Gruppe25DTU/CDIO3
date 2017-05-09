@@ -30,7 +30,7 @@ header {background: black;color:white;}
 
 .informationbox {
 float: left;
-padding: 5px 10px;
+padding: 10px 20px;
 }
 
 input[type=text], input[type=password], input[type=email] {
