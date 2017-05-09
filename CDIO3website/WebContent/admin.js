@@ -8,10 +8,10 @@ $(document).ready(function(){
 		updateTable();
 	});
 
-	
-	
-	
-	
+
+
+
+
 	$("#CreateUser").click(function(){
 		if($("#CU_UserInputFields").is(":hidden"))
 		{
@@ -24,31 +24,32 @@ $(document).ready(function(){
 			$("#CU_UserInputFields").hide();
 		}
 	});
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	//Use this function to check if an element is in an array.
 	function inArray(array,keyCode) {
 		var length = array.length;
 		for (i = 0; i < length;i++) {
 			if(array[i] == keyCode) {
-					return true;
+				return true;
 			}
-			
+
 		}
 		return false;
 	}
 	//Map: 17 pressed == true. If true allow commands. (ctrl A, ctrl C) 
-	var map = {17: false};
-	var CPRnotAllowed = ["107","111","106","192","109","221","222","190"];
+	var map = {17: false, 18: false};
+	var CPRnotAllowed = ["107","111","106","192","109","221","222","190", "188", "191", "186", "187",
+		"219", "226", "106", "110", "16"];
 
 	$("#CPR").keydown(function() {
 		alert(event.keyCode);
 		map[event.keyCode] = event.keyCode in map;
-		
+
 		if(inArray(CPRnotAllowed,event.keyCode)) {
 			event.preventDefault();
 		}
@@ -58,6 +59,7 @@ $(document).ready(function(){
 				event.preventDefault();
 			}	
 		}
+
 		if(this.value.length == this.maxLength && event.keyCode >= 48 && event.keyCode <=57) {
 			$("#CPR2").text(event.data);
 			$("#CPR2").focus();
@@ -70,8 +72,8 @@ $(document).ready(function(){
 		}
 		if(this.value.length == this.maxLength)
 			$("#CPR2").focus();
-		
-		
+
+
 	});
 
 	$("#CPR2").keydown(function() {
@@ -120,32 +122,32 @@ $(document).ready(function(){
 			map[event.keyCode] = false;
 		}
 	});
-	
+
 	$("#FirstnField").keydown(function() {
 		if (event.keyCode in map) {
 			map[event.keyCode] = true;
 		}
 		if((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
 			event.preventDefault();
-			
+
 		}
 	});
 
 
 	$("#FirstnField").keyup(function(){
-		
+
 		if (event.keyCode in map) {
 			map[event.keyCode] = false;
 		}
 	});
-	
+
 	$("#SurnameField").keydown(function() {
 		if (event.keyCode in map) {
 			map[event.keyCode] = true;
 		}
 		if((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
 			event.preventDefault();
-			
+
 		}
 	});
 
@@ -156,9 +158,9 @@ $(document).ready(function(){
 			map[event.keyCode] = false;
 		}
 	});
-	
-	
-	
+
+
+
 	//CU = Create , Update
 	$("#CreateUserOK").click(function(e){
 		alert("YOU CLICKED ON SUBMIT");
