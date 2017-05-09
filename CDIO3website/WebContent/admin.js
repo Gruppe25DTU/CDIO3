@@ -106,6 +106,7 @@ $(document).ready(function(){
 	
 	//CU = Create , Update
 	$("#CreateUserOK").click(function(e){
+		alert("YOU CLICKED ON SUBMIT");
 		e.preventDefault();
 		var formData = $("#CU_UserInputFields").serializeJson();
 		formData.cpr = $("#CPR").val()+$("#CPR2").val();

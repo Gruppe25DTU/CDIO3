@@ -41,7 +41,7 @@ input[type=text], input[type=password], input[type=email] {
 	box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type=submit], input[type=CreateUserButton] {
 	width: 100%;
 	padding: 14px 20px;
 	margin: 8px 0;
@@ -69,7 +69,7 @@ display: block;
 	width : 20px;
 }
 
-.button, input[type=submit]{
+.button, input[type=submit], input[type=CreateUserButton]{
 padding: 10px 20px;
 color: black;
 width: 100%;
