@@ -20,16 +20,31 @@ $(document).ready(function(){
 			$("#CU_UserInputFields").hide();
 		}
 	});
-
+	
+	//Use this function to check if an element is in an array.
+	function inArray(array,keyCode) {
+		var length = array.length;
+		for (i = 0; i < length;i++) {
+			if(array[i] == keyCode) {
+					return true;
+			}
+			
+		}
+		return false;
+	}
+	//Map: 17 pressed == true. If true allow commands. (ctrl A, ctrl C) 
 	var map = {17: false};
-	var allowed = [107,111,106];
-
-
+	var CPRnotAllowed = ["107","111","106","192","109","221","222","190"];
 
 	$("#CPR").keydown(function() {
-		//Check for letter
+		alert(event.keyCode);
 		map[event.keyCode] = event.keyCode in map;
-		if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 107 || event.keyCode == 111 || event.keyCode == 106 || event.keyCode == 109) {
+		
+		if(inArray(CPRnotAllowed,event.keyCode)) {
+			event.preventDefault();
+		}
+		//Check for letters
+		if(event.keyCode >= 65 && event.keyCode <= 90) {
 			if(!map[17]) {
 				event.preventDefault();
 			}	
@@ -88,9 +103,6 @@ $(document).ready(function(){
 				event.preventDefault();
 			}	
 		}
-		
-
-
 	});
 
 
@@ -98,8 +110,42 @@ $(document).ready(function(){
 		if (event.keyCode in map) {
 			map[event.keyCode] = false;
 		}
-		
+	});
+	
+	$("#FirstnField").keydown(function() {
+		if (event.keyCode in map) {
+			map[event.keyCode] = true;
+		}
+		if((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
+			event.preventDefault();
+			
+		}
+	});
 
+
+	$("#FirstnField").keyup(function(){
+		
+		if (event.keyCode in map) {
+			map[event.keyCode] = false;
+		}
+	});
+	
+	$("#SurnameField").keydown(function() {
+		if (event.keyCode in map) {
+			map[event.keyCode] = true;
+		}
+		if((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
+			event.preventDefault();
+			
+		}
+	});
+
+
+	$("#SurnameField").keyup(function(){
+
+		if (event.keyCode in map) {
+			map[event.keyCode] = false;
+		}
 	});
 	
 	
