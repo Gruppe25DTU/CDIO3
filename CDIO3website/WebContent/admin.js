@@ -9,7 +9,6 @@ $(document).ready(function(){
 	});
 	
 	$("#about").click(function() {
-		alert("NIGGA");
 		$("#popup").modal('show');
 		
 	});
