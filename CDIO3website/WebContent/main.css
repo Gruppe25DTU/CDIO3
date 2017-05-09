@@ -68,7 +68,7 @@
 	height : 310px;
 	z-index : 8;
 	top : 30px;
-	
+	overflow: auto;
 }
 
 #CU_UserInputFields
