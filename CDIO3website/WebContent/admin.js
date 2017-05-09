@@ -25,6 +25,11 @@ $(document).ready(function(){
 		}
 	});
 	
+	
+	
+	
+	
+	
 	//Use this function to check if an element is in an array.
 	function inArray(array,keyCode) {
 		var length = array.length;
