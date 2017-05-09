@@ -24,7 +24,7 @@
     <br> <br>
    <button id="UpdateUser" class="button">Update User</button>
     <br> <br>
-   <button id="About" class="button">About</button>
+   <button id="about" class="button">About</button>
 		</nav>
 
 		<article id="CU_UserInputFields" class="users">
@@ -65,6 +65,8 @@
 					<input type="submit" id = "CreateUserOK" value="Submit">
 				</div>
 			</form>
+			
+			
 		</article>
 
 		<footer class="userlistbox">
@@ -77,7 +79,49 @@
 				</tr>
 			</table>
 		</footer>
+		
+		<!-- Popup window -->
+
+<div id="popup" class="popup">
+<div class="popupcontent">
+<div class="popup-header">
+<span class="close">&times;</span>
+<h2>This Site is created by:</h2>
+</div>
+<div class="popup-body">
+insert pics here!
+</div>
+<div class="popup-bot">
+Gruppe: 44
+</div>
+</div>
+</div>
 	</div>
+
+
+<script>
+
+var modal = document.getElementById('popup');
+
+var btn = document.getElementById("about");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
 
 </body>
 </html>
