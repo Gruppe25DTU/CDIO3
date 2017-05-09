@@ -21,23 +21,70 @@ $(document).ready(function(){
 		}
 	});
 
+	var map = {17: false};
+	var allowed = [107,111,106];
+
+
+
+	$("#CPR").keydown(function() {
+		//Check for letter
+		map[event.keyCode] = event.keyCode in map;
+		if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 107 || event.keyCode == 111 || event.keyCode == 106 || event.keyCode == 109) {
+			if(!map[17]) {
+				event.preventDefault();
+			}	
+		}
+		if(this.value.length == this.maxLength && event.keyCode >= 48 && event.keyCode <=57) {
+			$("#CPR2").text(event.data);
+			$("#CPR2").focus();
+		}
+
+	});
 	$("#CPR").keyup(function(){
-		this.value = this.value.replace(/[^0-9\.]/g,'');
+		if (event.keyCode in map) {
+			map[event.keyCode] = false;
+		}
 		if(this.value.length == this.maxLength)
+<<<<<<< HEAD
 
 		{	
 
+=======
+		{
+>>>>>>> branch 'Website' of https://github.com/Gruppe25DTU/CDIO3.git
 			$("#CPR2").focus();
 		}
 		
 	});
 
+	$("#CPR2").keydown(function() {
+		if (event.keyCode in map) {
+			map[event.keyCode] = true;
+		}
+		if(event.keyCode >= 65 && event.keyCode <= 90 && event.keyCode != 107) {
+			if(!map[17]) {
+				event.preventDefault();
+			}	
+		}
+		if(this.value.length == 0 && event.keyCode == 8) {
+			$("#CPR").focus();
+
+		}
+
+
+
+	});
+
+
 	$("#CPR2").keyup(function(){
-		this.value = this.value.replace(/[^0-9\.]/g,'');
-		if(this.value.length == 0)
+		if (event.keyCode in map) {
+			map[event.keyCode] = false;
+		}
+		if(this.value.length == 0 && ($("#CPR").input.length !=6))
 		{
 			$("#CPR").focus();
 		}
+
 	});
 
 	//CU = Create , Update
