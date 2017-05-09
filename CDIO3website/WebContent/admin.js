@@ -45,15 +45,8 @@ $(document).ready(function(){
 			map[event.keyCode] = false;
 		}
 		if(this.value.length == this.maxLength)
-<<<<<<< HEAD
-
-		{	
-
-=======
-		{
->>>>>>> branch 'Website' of https://github.com/Gruppe25DTU/CDIO3.git
 			$("#CPR2").focus();
-		}
+		
 		
 	});
 
