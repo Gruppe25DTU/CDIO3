@@ -1,0 +1,104 @@
+.container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+
+.container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+
+header {background: black;color:white;}
+
+.nav {background:#eee;}
+
+.users {
+    text-align: left;
+}
+
+.userlistbox {background: #aaa;color:white;}
+
+@media all and (min-width: 500px) {
+    .nav {text-align:left;flex:0.5 auto; order:1;}
+    .users {flex:10 0px; order:2;}
+    .userlistbox {order:3;}
+}
+
+.informationbox {
+float: left;
+padding: 5px 10px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 100%;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border-radius: 4px;
+	curser: pointer;
+	background-color: #FAEBD7;
+}
+
+
+#CPR
+{
+	width : 45px;
+}
+
+#CPR2
+{
+	width : 30px;
+}
+
+.blockbox {
+display: block;
+}
+#IDField
+{
+	width : 20px;
+}
+
+.button, input[type=submit]{
+padding: 10px 20px;
+color: black;
+background-color: #FAEBD7;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+border-radius: 8px;
+border: 2px solid black;
+transition-duration: 0.3s;
+}
+
+.button:hover, input[type=submit]:hover {
+background-color: white;
+color: black;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+table {
+border-collapse: collapse;
+width:100%
+}
+
+th, td {
+text-align: left;
+padding: 10px;
+}
+
+th{
+background-color: black;
+color: white;
+}

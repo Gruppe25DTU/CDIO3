@@ -22,15 +22,14 @@ $(document).ready(function(){
 	});
 
 	var map = {17: false};
+	var allowed = [107,111,106];
 
 
 
 	$("#CPR").keydown(function() {
-		//Check for letters
-		if (event.keyCode in map) {
-			map[event.keyCode] = true;
-		}
-		if(event.keyCode >= 65 && event.keyCode <= 90 && event.keyCode != 107) {
+		//Check for letter
+		map[event.keyCode] = event.keyCode in map;
+		if(event.keyCode >= 65 && event.keyCode <= 90 || event.keyCode == 107 || event.keyCode == 111 || event.keyCode == 106 || event.keyCode == 109) {
 			if(!map[17]) {
 				event.preventDefault();
 			}	
@@ -43,8 +42,8 @@ $(document).ready(function(){
 	});
 	$("#CPR").keyup(function(){
 		if (event.keyCode in map) {
-	        map[event.keyCode] = false;
-	    }
+			map[event.keyCode] = false;
+		}
 		if(this.value.length == this.maxLength)
 		{
 			$("#CPR2").focus();
@@ -72,8 +71,8 @@ $(document).ready(function(){
 
 	$("#CPR2").keyup(function(){
 		if (event.keyCode in map) {
-	        map[event.keyCode] = false;
-	    }
+			map[event.keyCode] = false;
+		}
 		if(this.value.length == 0 && ($("#CPR").input.length !=6))
 		{
 			$("#CPR").focus();

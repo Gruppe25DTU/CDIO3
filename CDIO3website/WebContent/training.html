@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Group 25 CDIO03</title>
+<script src="jquery-3.2.1.js"></script>
+<script src="admin.js"></script>
+<script src="jquery.serialize-object.js"></script>
+<link rel="stylesheet" type="text/css" href="training.css">
+</head>
+<body>
+
+	<div class="container">
+		<header>
+			<h1>Administrator page</h1>
+		</header>
+
+		<nav class="nav">
+			<button class="button">Create new user</button>
+			<br> <br>
+			<button class="button">Refresh user list</button>
+		</nav>
+
+		<article class="users">
+			<div class="blockbox">
+				ID: <input type="text" name="ID" id="IDField" disabled>
+			</div>
+			<form action="/action_page.php" autocomplete="on">
+				<div class="informationbox">
+					Username:<br> <input type="text" name="username"
+						id="usernameField"> Password:<br> <input
+						type="password" name="password"><br> Repeat password:
+					<br> <input type="password" id="passRepeat"><br>
+					CPR:<br> <input type="text" id="CPR" name="cpr" maxlength="6">-<input
+						type="text" id="CPR2" maxlength="4">
+				</div>
+				<div class="informationbox">
+					First Name:<br> <input type="text" name="First name:"
+						id="FirstnField"><br> Surname:<br> <input
+						type="text" name="SurName:" id="SurnameField"><br>Address:<br>
+					<input type="text" name="Address:" id="AddressField"
+						placeholder="Optional"><br> Email:<br> <input
+						type="email" name="Email:" id="EmailField" placeholder="Optional">
+				</div>
+				<div class="informationbox">
+					Phonenumber:<br> <input type="text" name="Phonenumber:"
+						placeholder="Optional"> <br> Roles:<br>
+					Pharmacist<input type="checkbox" value="pharmacist" name="role">
+					Administrator<input type="checkbox" value="admin" name="role">
+					<br> Production Manager<input type="checkbox"
+						value="productionManager" name="role"> Lab assistant<input
+						type="checkbox" value="labAssistant" name="role"><br>
+				</div>
+				<div class="blockbox">
+					<input type="submit" value="Submit">
+				</div>
+			</form>
+		</article>
+
+		<footer class="userlistbox">
+			<table id="UserTable">
+				<tr id="firstRow">
+					<th>ID</th>
+					<th>First name</th>
+					<th>Surname</th>
+					<th>User name</th>
+				</tr>
+			</table>
+		</footer>
+	</div>
+
+</body>
+</html>
