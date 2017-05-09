@@ -90,20 +90,26 @@
 				</div>
 				<div class="popup-body">
 					<div class="informationbox">
-						Al-Alak, Mehdi <br> Studienummer: s165225 <br>
+						Al-Alak, Mehdi <br> Studienummer: s165225 <br> <img
+							src="WebContent/Pictures/mehdi.png" alt="HTML5 Icon"
+							style="width: 128px; height: 128px;">
 					</div>
-<div class="informationbox">
+					<div class="informationbox">
 						Jensen, Lasse A. <br> Studienummer: s165221 <br>
+						<img src="WebContent/Pictures/mehdi.png" alt="HTML5 Icon" style="width:128px;height:128px;">
 					</div>
 					<div class="informationbox">
 						Soelberg, Andreas <br> Studienummer: s165221 <br>
+						<img src="WebContent/Pictures/mehdi.png" alt="HTML5 Icon" style="width:128px;height:128px;">
 					</div>
 					<br>
 					<div class="informationbox">
 						Jørgensen, Jimmy <br> Studienummer: s165223 <br>
+						<img src="WebContent/Pictures/mehdi.png" alt="HTML5 Icon" style="width:128px;height:128px;">
 					</div>
 					<div class="informationbox">
 						Muslu, Yanki <br> Studienummer: s165246 <br>
+						<img src="WebContent/Pictures/mehdi.png" alt="HTML5 Icon" style="width:128px;height:128px;">
 					</div>
 
 				</div>
@@ -116,27 +122,26 @@
 
 
 	<script>
+		var modal = document.getElementById('popup');
 
-var modal = document.getElementById('popup');
+		var btn = document.getElementById("about");
 
-var btn = document.getElementById("about");
+		var span = document.getElementsByClassName("close")[0];
 
-var span = document.getElementsByClassName("close")[0];
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
 
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
 
 
 </body>
