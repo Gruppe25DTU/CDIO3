@@ -28,26 +28,25 @@
 			<button id="about" class="button">About</button>
 		</nav>
 
-		<article id="CU_UserInputFields" class="users">
+		<form id="CU_UserInputFields" class="users">
 			<div class="blockbox">
 				ID: <input type="text" name="ID" id="IDField" disabled>
 			</div>
 			<div class="informationbox">
 				Username:<br> <input type="text" name="username">
-				Password:<br> <input type="password" name="password"><br>
+				Password:<br> <input id = "pass" type="password" name="password"><br>
 				Repeat password: <br> <input type="password"
 					name="RepeatPassword"><br> CPR:<br> <input
 					type="text" id="CPR" name="cpr" maxlength="6">-<input
 					type="text" id="CPR2" maxlength="4">
 			</div>
-			<form action="/action_page.php" autocomplete="on">
 				<div class="informationbox">
-					First Name:<br> <input type="text" name="First name:"
+					First Name:<br> <input type="text" name="Firstname"
 						id="FirstnField"><br> Surname:<br> <input
-						type="text" name="SurName:" id="SurnameField"><br>
-					City: <br> <input type="text" name="City"
+						type="text" name="SurName" id="SurnameField"><br>
+					City: <br> <input id = "city" type="text" name="City"
 						placeholder="Optional"><br> Zip Code: <br> <input
-						type="text" name="zip code" placeholder="Optional">
+						id = "zip" type="text" name="zip code" placeholder="Optional">
 				</div>
 				<div class="informationbox">
 					Address:<br> <input type="text" name="Address:"
@@ -65,10 +64,9 @@
 				<div class="blockbox">
 					<input type="submit" id="CreateUserOK" value="Submit">
 				</div>
-			</form>
 
 
-		</article>
+		</form>
 
 		<footer class="userlistbox">
 			<table id="UserTable">

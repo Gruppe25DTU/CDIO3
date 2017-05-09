@@ -211,12 +211,13 @@ $(document).ready(function(){
 
 	//CU = Create , Update
 	$("#CreateUserOK").click(function(e){
-		alert("YOU CLICKED ON SUBMIT");
 		e.preventDefault();
-		var formData = $("#CU_UserInputFields").serializeJson();
+		var formData = $("#CU_UserInputFields").serializeObject();
+		alert(formData.username);
+		alert(formData.Firstname);
 		formData.cpr = $("#CPR").val()+$("#CPR2").val();
 		$("#CU_UserInputFields").trigger('reset');
-		alert(formData);
+		
 		sendCreateUserForm(formData);
 
 
@@ -240,7 +241,7 @@ $(document).ready(function(){
 function sendCreateUserForm(formData){	
 	$.ajax(
 			{
-				url: "localhost:8080/rest/createUser",
+				url: "localhost:8080/HelloWorld/rest/createUser",
 				data : formData,
 				contentType : "application/json",
 				method : "POST",
