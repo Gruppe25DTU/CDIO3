@@ -79,7 +79,31 @@ $(document).ready(function(){
 		}
 
 	});
+	$("#tlf").keydown(function() {
+		if (event.keyCode in map) {
+			map[event.keyCode] = true;
+		}
+		if(event.keyCode >= 65 && event.keyCode <= 90 && event.keyCode != 107) {
+			if(!map[17]) {
+				event.preventDefault();
+			}	
+		}
+		
 
+
+	});
+
+
+	$("#tlf").keyup(function(){
+		if (event.keyCode in map) {
+			map[event.keyCode] = false;
+		}
+		
+
+	});
+	
+	
+	
 	//CU = Create , Update
 	$("#CreateUserOK").click(function(e){
 		e.preventDefault();
