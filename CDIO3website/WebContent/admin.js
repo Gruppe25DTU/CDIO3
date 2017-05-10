@@ -259,6 +259,7 @@ function sendUserListRequest(){
 			{
 				url : "rest/users",
 				success : function(data){
+					alert(data);
 					users = data;
 				},
 				error : function(jqXHR, text, error){
@@ -271,8 +272,8 @@ function sendUserListRequest(){
 function sendUpdateUserForm(formData)
 {
 	$.ajax({
-		url : "rest/users",
-		data : formData,
+		url : "rest/users/"+formData.userid,
+		data : JSON.stringify(formData),
 		contentType : "application/json",
 		method : "PUT",
 		success : function(data){
@@ -287,8 +288,7 @@ function sendUpdateUserForm(formData)
 function sendDeleteUserRequest(formData)
 {
 	$.ajax({
-		url : "rest/users",
-		data : formData,
+		url : "rest/users/"+formData.userid,
 		contentType : "application/json",
 		method : "DELETE",
 		success : function(data)
