@@ -238,7 +238,6 @@ $(document).ready(function(){
 });
 
 function sendCreateUserForm(formData){
-	alert(JSON.stringify(formData));
 	$.ajax(
 			{
 				url : "http://localhost:8080/CDIO3website/rest/users",
