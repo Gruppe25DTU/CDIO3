@@ -5,13 +5,13 @@
 
 <meta charset="ISO-8859-1">
 <title>Group 25 CDIO03</title>
+<link rel="stylesheet" type="text/css" href="./Training.css">
 <script src="jquery-3.2.1.js"></script>
-<script src="admin.js"></script>
 <script src="jquery.serialize-object.js"></script>
-<link rel="stylesheet" type="text/css" href="training.css">
+<script src="admin.js"></script>
+
 </head>
 <body>
-
 	<div class="container">
 		<header>
 			<h1>Administrator page</h1>
@@ -33,7 +33,7 @@
 				ID: <input type="text" name="ID" id="IDField" disabled>
 			</div>
 			<div class="informationbox">
-				Username:<br> <input type="text" name="username">
+				Username:<br> <input type="text" name="userName">
 				Password:<br> <input id = "pass" type="password" name="password"><br>
 				Repeat password: <br> <input type="password"
 					name="RepeatPassword"><br> CPR:<br> <input
@@ -55,11 +55,11 @@
 						placeholder="Optional"> Phonenumber:<br> <input
 						id="tlf" type="text" name="Phonenumber:" placeholder="Optional"
 						maxlength="8"> <br> Roles:<br> Pharmacist<input
-						type="checkbox" value="pharmacist" name="role">
-					Administrator<input type="checkbox" value="admin" name="role">
+						type="checkbox" value="pharmacist" name="roles[]">
+					Administrator<input type="checkbox" value="admin" name="roles[]">
 					<br> Production Manager<input type="checkbox"
-						value="productionManager" name="role"> Lab assistant<input
-						type="checkbox" value="labAssistant" name="role"><br>
+						value="productionManager" name="roles[]"> Lab assistant<input
+						type="checkbox" value="labAssistant" name="roles[]"><br>
 				</div>
 				<div class="blockbox">
 					<input type="submit" id="CreateUserOK" value="Submit">

@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 
 	$("#ShowUsers").click(function(){
-		updateTable();
+		sendUserListRequest();
 	});
 
 
@@ -214,6 +214,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var formData = $("#CU_UserInputFields").serializeObject();
 		formData.cpr = $("#CPR").val()+$("#CPR2").val();
+		
 		//$("#CU_UserInputFields").trigger('reset');
 		
 		sendCreateUserForm(formData);
@@ -237,18 +238,20 @@ $(document).ready(function(){
 });
 
 function sendCreateUserForm(formData){
+	alert(JSON.stringify(formData));
 	$.ajax(
 			{
-				url: "rest/users",
+				url : "http://localhost:8080/CDIO3website/rest/users",
+				method : 'POST',
+				contentType : 'application/json',
+				dataType : 'json',
+				Accept : "application/json",
 				data : JSON.stringify(formData),
-				datatype : "json",
-				contentType : "application/json",
-				method : "POST",
 				success : function(data){
-					alert(data);
+					console.log(data);
 				},
 				error : function(jqXHR, text, error){
-					alert(jqXHR.status + text + error);
+					console.log(jqXHR.status + text + error);
 				}
 			});
 
@@ -259,11 +262,11 @@ function sendUserListRequest(){
 			{
 				url : "rest/users",
 				success : function(data){
-					alert(data);
 					users = data;
+					updateTable();
 				},
 				error : function(jqXHR, text, error){
-						(jqXHR.status + text + error);
+					console.log(jqXHR.status + text + error);
 				}
 			}
 	);
@@ -322,20 +325,18 @@ function clickUpdateButton(rowNumber)
 
 function updateTable()
 {	
-	sendUserListRequest();
-	if(users != null || users !=undefined)
-	{
-		var nUsers = users.length();
-		emptyRows = nUsers < emptyRows ? nUsers : emptyRows;
-		nUsers = nUsers - emptyRows;
-		//First fill out empty rows
-		for(var i = 0; i<emptyRows ; i++)
-		{
-			var user = users[i];
-		}
-	}
-
-
+	
+	var table = "<tr id=\"firstRow\">"+
+				"	<th>ID</th>"+
+				"	<th>Initials</th>"+
+				"	<th>User name</th>"+
+				"</tr>";
+	$.each(users , function(){
+		table += "<tr> <td>"+this["userID"]+"</td>"+
+				"<td>"+ this["ini"]+"</td>"+
+				"<td>"+ this["userName"]+"</td></tr>";
+	});
+	$("#UserTable").html(table);
 
 }
 

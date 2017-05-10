@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Group 25 CDIO03</title>
+<script src="jquery-3.2.1.js"></script>
+<script src="admin.js"></script>
+<script src="jquery.serialize-object.js"></script>
+<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div id="SiteHeader">
+		<h1>ADMIN PAGE</h1>
+		<div id="ButtonPane">
+			<button id="CreateUser" class="adminOption">Create new user</button>
+			<button id="ShowUsers" class="adminOption">Refresh user list</button>
+		</div>
+	</div>
+	<div id="SiteBody">
+		<div id="CU_UserBox">
+			<form id="CU_UserInputFields">
+			<div>ID: <input type="text" name="ID" id="IDField" disabled></div><br>
+				<div id="notOptional" class="CU_subfields">
+					Username<br> <input type="text" name="userName"
+						class="inputField" id="usernameField"><br> 
+					Password<br>
+					<input type="text" name="password" class="inputField"><br>
+					Repeat password: <br> <input type="password"
+						class="inputField" id="passRepeat"><br> 
+						CPR<br>
+					<input type="text" id="CPR" name="cpr" class="inputField"
+						maxlength="6">-<input type="text" id="CPR2"
+						class="inputField" maxlength="4"><br>
+					Initials:<br> <input type="text" name="ini"
+                        class="inputField" id="iniField">
+				</div>
+				<div id="optional" class="CU_subfields">
+					First Name:<br> <input type="text" name="First name:"
+						class="inputField" id="FirstnField"><br> Surname:<br>
+					<input type="text" name="SurName:" class="inputField"
+						id="SurnameField"><br>Address:<br> <input
+						type="text" name="Address:" class="inputField" id="AddressField"><br>Email:<br>
+					<input type="text" name="Email:" class="inputField" id="EmailField">
+
+				</div>
+				<div id="optional2" class="CU_subfields">
+					Phonenumber:<br> <input type="text" name="Phonenumber:"
+						class="inputField" id="PhoneField" placeholder="Optional"> <br>
+					Roles:<br>
+					Pharmacist<input type="checkbox" value="pharmacist" name="roles[]">
+					Administrator<input type="checkbox" value="admin" name="roles[]">
+					<br> Production Manager<input type="checkbox"
+						value="productionManager" name="roles[]"> Lab assistant<input
+						type="checkbox" value="labAssistant" name="roles[]"><br>
+				</div>
+				<div id="CU_buttonbox" class="CU_subfields">
+					<button id="CreateUserOK">Submit</button>
+				</div>
+
+			</form>
+		</div>
+		<div id="UserTableBox">
+			<button>Refresh</button>
+			<table id="UserTable">
+				<tr id="firstRow">
+					<th>ID</th>
+					<th>First name</th>
+					<th>Surname</th>
+					<th>User name</th>
+				</tr>
+			</table>
+			<div id="UserTableFooter"></div>
+		</div>
+	</div>
+</body>
+</html>

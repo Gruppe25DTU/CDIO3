@@ -2,76 +2,146 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="ISO-8859-1">
 <title>Group 25 CDIO03</title>
+<link rel="stylesheet" type="text/css" href="./Training.css">
 <script src="jquery-3.2.1.js"></script>
-<script src="admin.js"></script>
 <script src="jquery.serialize-object.js"></script>
-<link rel="stylesheet" type="text/css" href="main.css">
+<script src="admin.js"></script>
+
 </head>
 <body>
-	<div id="SiteHeader">
-		<h1>ADMIN PAGE</h1>
-		<div id="ButtonPane">
-			<button id="CreateUser" class="adminOption">Create new user</button>
-			<button id="ShowUsers" class="adminOption">Refresh user list</button>
-		</div>
-	</div>
-	<div id="SiteBody">
-		<div id="CU_UserBox">
-			<form id="CU_UserInputFields">
-			<div>ID: <input type="text" name="ID" id="IDField" disabled></div><br>
-				<div id="notOptional" class="CU_subfields">
-					Username<br> <input type="text" name="userName"
-						class="inputField" id="usernameField"><br> 
-					Password<br>
-					<input type="text" name="password" class="inputField"><br>
-					Repeat password: <br> <input type="password"
-						class="inputField" id="passRepeat"><br> 
-						CPR<br>
-					<input type="text" id="CPR" name="cpr" class="inputField"
-						maxlength="6">-<input type="text" id="CPR2"
-						class="inputField" maxlength="4"><br>
-					Initials:<br> <input type="text" name="ini"
-                        class="inputField" id="iniField">
-				</div>
-				<div id="optional" class="CU_subfields">
-					First Name:<br> <input type="text" name="First name:"
-						class="inputField" id="FirstnField"><br> Surname:<br>
-					<input type="text" name="SurName:" class="inputField"
-						id="SurnameField"><br>Address:<br> <input
-						type="text" name="Address:" class="inputField" id="AddressField"><br>Email:<br>
-					<input type="text" name="Email:" class="inputField" id="EmailField">
+	<div class="container">
+		<header>
+			<h1>Administrator page</h1>
+		</header>
+
+
+		<nav class="nav">
+			<button id="CreateUser" class="button">Create new user</button>
+			<br> <br>
+			<button id="ShowUsers" class="button">Refresh user list</button>
+			<br> <br>
+			<button id="UpdateUser" class="button">Update User</button>
+			<br> <br>
+			<button id="about" class="button">About</button>
+		</nav>
+
+		<form id="CU_UserInputFields" class="users">
+			<div class="blockbox">
+				ID: <input type="text" name="ID" id="IDField" disabled>
+			</div>
+			<div class="informationbox">
+				Username:<br> <input type="text" name="userName">
+				Password:<br> <input id = "pass" type="password" name="password"><br>
+				Repeat password: <br> <input type="password"
+					><br> CPR:<br> <input
+					type="text" id="CPR" name="cpr" maxlength="6">-<input
+					type="text" id="CPR2" maxlength="4">
+			</div>
+				<div class="informationbox">
+					First Name:<br> <input type="text"
+						id="FirstnField"><br> Surname:<br> <input
+						type="text" id="SurnameField"><br>
+					Initials:<br> <input type="text"
+						id="initialsField" name="ini" maxlength="4"><br>
 
 				</div>
-				<div id="optional2" class="CU_subfields">
-					Phonenumber:<br> <input type="text" name="Phonenumber:"
-						class="inputField" id="PhoneField" placeholder="Optional"> <br>
-					Roles:<br>
-					Pharmacist<input type="checkbox" value="pharmacist" name="roles[]">
+				<div class="informationbox">
+					Address:<br> <input type="text"
+						id="AddressField" placeholder="Optional"><br> Email:<br>
+					<input type="email" id="EmailField"
+						placeholder="Optional"> Phonenumber:<br> <input
+						id="tlf" type="text" placeholder="Optional"
+						maxlength="8"> <br> Roles:<br> Pharmacist<input
+						type="checkbox" value="pharmacist" name="roles[]">
 					Administrator<input type="checkbox" value="admin" name="roles[]">
 					<br> Production Manager<input type="checkbox"
 						value="productionManager" name="roles[]"> Lab assistant<input
 						type="checkbox" value="labAssistant" name="roles[]"><br>
 				</div>
-				<div id="CU_buttonbox" class="CU_subfields">
-					<button id="CreateUserOK">Submit</button>
+				<div class="blockbox">
+					<input type="submit" id="CreateUserOK" value="Submit">
 				</div>
 
-			</form>
-		</div>
-		<div id="UserTableBox">
-			<button>Refresh</button>
+
+		</form>
+
+		<footer class="userlistbox">
 			<table id="UserTable">
 				<tr id="firstRow">
 					<th>ID</th>
-					<th>First name</th>
-					<th>Surname</th>
+					<th>Initials</th>
 					<th>User name</th>
 				</tr>
 			</table>
-			<div id="UserTableFooter"></div>
+		</footer>
+
+		<!-- Popup window -->
+
+		<div id="popup" class="popup">
+			<div class="popupcontent">
+				<div class="popup-header">
+					<span class="close">&times;</span>
+					<h2>This Site is created by:</h2>
+				</div>
+				<div class="popup-body">
+					<div class="informationbox">
+						Al-Alak, Mehdi <br> Studienummer: s165225 <br> <img
+							src="Pictures/Mehdi.png" alt="Mehdi s165225"
+							style="width: 200px; height: 266px;">
+					</div>
+					<div class="informationbox">
+						Jensen, Lasse A. <br> Studienummer: s165221 <br>
+						<img src="Pictures/Lasse.png" alt="Lasse s165221" style="width:200px;height:266px;">
+					</div>
+					<div class="informationbox">
+						Soelberg, Andreas <br> Studienummer: s165206 <br>
+						<img src="Pictures/Andreas.png" alt="Andreas 165206" style="width:200px;height:266px;">
+					</div>
+					<br>
+					<div class="informationbox">
+						Jørgensen, Jimmy <br> Studienummer: s165223 <br>
+						<img src="Pictures/Jimmy.png" alt="Jimmy 165223" style="width:200px;height:266px;">
+					</div>
+					<div class="informationbox">
+						Muslu, Yanki <br> Studienummer: s165246 <br>
+						<img src="Pictures/Yanki.png" alt="Yanki s165246" style="width:200px;height:266px;">
+					</div>
+
+				</div>
+				<div class="popup-footer">
+					<h3>Gruppe: 25</h3>
+				</div>
+			</div>
 		</div>
 	</div>
+
+
+	<script>
+		var modal = document.getElementById('popup');
+
+		var btn = document.getElementById("about");
+
+		var span = document.getElementsByClassName("close")[0];
+
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
+
 </body>
 </html>
+
