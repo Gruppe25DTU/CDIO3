@@ -213,10 +213,8 @@ $(document).ready(function(){
 	$("#CreateUserOK").click(function(e){
 		e.preventDefault();
 		var formData = $("#CU_UserInputFields").serializeObject();
-		alert(formData.username);
-		alert(formData.Firstname);
 		formData.cpr = $("#CPR").val()+$("#CPR2").val();
-		$("#CU_UserInputFields").trigger('reset');
+		//$("#CU_UserInputFields").trigger('reset');
 		
 		sendCreateUserForm(formData);
 
@@ -238,11 +236,12 @@ $(document).ready(function(){
 
 });
 
-function sendCreateUserForm(formData){	
+function sendCreateUserForm(formData){
 	$.ajax(
 			{
-				url: "localhost:8080/rest/users",
-				data : formData,
+				url: "rest/users",
+				data : JSON.stringify(formData),
+				datatype : "json",
 				contentType : "application/json",
 				method : "POST",
 				success : function(data){
@@ -258,12 +257,12 @@ function sendCreateUserForm(formData){
 function sendUserListRequest(){
 	$.ajax(
 			{
-				url : "localhost:8080/rest/users",
+				url : "rest/users",
 				success : function(data){
 					users = data;
 				},
 				error : function(jqXHR, text, error){
-					alert(jqXHR.status + text + error);
+						(jqXHR.status + text + error);
 				}
 			}
 	);
@@ -272,7 +271,7 @@ function sendUserListRequest(){
 function sendUpdateUserForm(formData)
 {
 	$.ajax({
-		url : "localhost:8080/rest/users",
+		url : "rest/users",
 		data : formData,
 		contentType : "application/json",
 		method : "PUT",
@@ -288,7 +287,7 @@ function sendUpdateUserForm(formData)
 function sendDeleteUserRequest(formData)
 {
 	$.ajax({
-		url : "localhost:8080/rest/users",
+		url : "rest/users",
 		data : formData,
 		contentType : "application/json",
 		method : "DELETE",

@@ -22,7 +22,7 @@
 			<form id="CU_UserInputFields">
 			<div>ID: <input type="text" name="ID" id="IDField" disabled></div><br>
 				<div id="notOptional" class="CU_subfields">
-					Username<br> <input type="text" name="username"
+					Username<br> <input type="text" name="userName"
 						class="inputField" id="usernameField"><br> 
 					Password<br>
 					<input type="text" name="password" class="inputField"><br>
@@ -31,7 +31,9 @@
 						CPR<br>
 					<input type="text" id="CPR" name="cpr" class="inputField"
 						maxlength="6">-<input type="text" id="CPR2"
-						class="inputField" maxlength="4">
+						class="inputField" maxlength="4"><br>
+					Initials:<br> <input type="text" name="ini"
+                        class="inputField" id="iniField">
 				</div>
 				<div id="optional" class="CU_subfields">
 					First Name:<br> <input type="text" name="First name:"
@@ -44,12 +46,13 @@
 				</div>
 				<div id="optional2" class="CU_subfields">
 					Phonenumber:<br> <input type="text" name="Phonenumber:"
-						class="inputField" id="PhoneField" placeholder="Optional"> <br> Roles:<br>
-					Pharmacist<input type="checkbox" value="pharmacist" name="role">
-					Administrator<input type="checkbox" value="admin" name="role">
+						class="inputField" id="PhoneField" placeholder="Optional"> <br>
+					Roles:<br>
+					Pharmacist<input type="checkbox" value="pharmacist" name="roles[]">
+					Administrator<input type="checkbox" value="admin" name="roles[]">
 					<br> Production Manager<input type="checkbox"
-						value="productionManager" name="role"> Lab assistant<input
-						type="checkbox" value="labAssistant" name="role"><br>
+						value="productionManager" name="roles[]"> Lab assistant<input
+						type="checkbox" value="labAssistant" name="roles[]"><br>
 				</div>
 				<div id="CU_buttonbox" class="CU_subfields">
 					<button id="CreateUserOK">Submit</button>
