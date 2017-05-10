@@ -1,10 +1,12 @@
 package rest;
 
-import javax.ws.rs.core.Application;
+
+import org.glassfish.jersey.server.ResourceConfig;
+
 import javax.ws.rs.ApplicationPath;
 
 @ApplicationPath("/rest")
-public class AppConfig extends Application {
+public class AppConfig extends ResourceConfig {
 
 	public AppConfig() {
 		// TODO Auto-generated constructor stub

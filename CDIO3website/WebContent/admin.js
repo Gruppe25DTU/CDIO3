@@ -241,7 +241,7 @@ $(document).ready(function(){
 function sendCreateUserForm(formData){	
 	$.ajax(
 			{
-				url: "localhost:8080/HelloWorld/rest/createUser",
+				url: "localhost:8080/rest/users",
 				data : formData,
 				contentType : "application/json",
 				method : "POST",
@@ -258,7 +258,7 @@ function sendCreateUserForm(formData){
 function sendUserListRequest(){
 	$.ajax(
 			{
-				url : "localhost:8080/rest/getUserList",
+				url : "localhost:8080/rest/users",
 				success : function(data){
 					users = data;
 				},
@@ -272,7 +272,7 @@ function sendUserListRequest(){
 function sendUpdateUserForm(formData)
 {
 	$.ajax({
-		url : "localhost:8080/rest/updateUser",
+		url : "localhost:8080/rest/users",
 		data : formData,
 		contentType : "application/json",
 		method : "PUT",
@@ -288,7 +288,7 @@ function sendUpdateUserForm(formData)
 function sendDeleteUserRequest(formData)
 {
 	$.ajax({
-		url : "localhost:8080/rest/deleteUser",
+		url : "localhost:8080/rest/users",
 		data : formData,
 		contentType : "application/json",
 		method : "DELETE",
